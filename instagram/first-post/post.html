@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>First Post</title>
+<!--
+  Instagram intro carousel, 4 slides at 1080x1350 (4:5).
+  Styled after the Edina template the blog is built on: Poppins, #F9F9FC / #FFF
+  sections, #1A1A1A headings, #7E7E7E body, #34495E slate accent, #CBD3D9 rules.
+
+  Edit the copy directly below, then re-render with:  node render.js
+  To use a photo instead of initials: drop photo.jpg next to this file and
+  add class "has-photo" to <body>.
+-->
+<style>
+@font-face { font-family: "Poppins"; font-weight: 300; src: url(fonts/poppins-300.woff2) format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 400; src: url(fonts/poppins-400.woff2) format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 500; src: url(fonts/poppins-500.woff2) format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 600; src: url(fonts/poppins-600.woff2) format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; src: url(fonts/poppins-700.woff2) format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 800; src: url(fonts/poppins-800.woff2) format("woff2"); }
+
+:root {
+  --ink: #1A1A1A;
+  --body: #7E7E7E;
+  --slate: #34495E;
+  --tint: #F9F9FC;
+  --rule: #CBD3D9;
+  --ring: #E2E2E2;
+  --sep: #E5E5E5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #d9dce1; }
+body { font-family: "Poppins", sans-serif; color: var(--body); -webkit-font-smoothing: antialiased; }
+.stack { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; }
+
+.slide {
+  position: relative;
+  width: 1080px;
+  height: 1350px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--tint);
+}
+.slide.white { background: #fff; }
+h1, h2, h3 { color: var(--ink); line-height: 1.2; }
+
+/* Top bar: the sidebar’s logo block */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  padding: 0 90px;
+  border-bottom: 1px solid var(--rule);
+  flex-shrink: 0;
+}
+.logo { font-size: 44px; font-weight: 600; color: var(--ink); letter-spacing: -1px; }
+.logo b { font-weight: 600; color: var(--slate); position: relative; }
+.logo b::after {
+  content: ""; position: absolute; left: -2px; right: 2px; bottom: 2px;
+  height: 3px; background: var(--slate);
+}
+.count { font-size: 24px; font-weight: 500; color: var(--body); letter-spacing: 2px; }
+.count span { color: var(--ink); }
+
+.main { flex: 1; padding: 0 90px; display: flex; flex-direction: column; }
+
+/* Bottom bar: the sidebar’s author block */
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 170px;
+  padding: 0 90px;
+  border-top: 1px solid var(--rule);
+  flex-shrink: 0;
+}
+.author { display: flex; align-items: center; gap: 24px; }
+.author .av {
+  width: 76px; height: 76px; border-radius: 50%;
+  background: var(--slate); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 600; letter-spacing: 1px;
+  background-size: cover; background-position: center;
+}
+.author h3 { font-size: 28px; font-weight: 500; line-height: 1.3; }
+.author p { font-size: 22px; line-height: 1.3; }
+
+/* The template’s "Learn More ->" link */
+.more { font-size: 26px; color: var(--body); display: inline-flex; align-items: center; gap: 18px; }
+.more i { position: relative; display: inline-block; width: 44px; height: 3px; border-radius: 50px; background: currentColor; }
+.more i::before, .more i::after {
+  content: ""; position: absolute; right: -1px; width: 14px; height: 3px;
+  border-radius: 50px; background: currentColor; transform-origin: right center;
+}
+.more i::before { transform: rotate(40deg); }
+.more i::after { transform: rotate(-40deg); }
+
+/* ---------- 01 HERO ---------- */
+.hero .main { align-items: center; justify-content: center; text-align: center; padding-bottom: 20px; }
+.portrait { position: relative; width: 400px; height: 400px; margin-bottom: 64px; }
+.portrait::before {
+  content: ""; position: absolute; inset: -16px; border-radius: 50%; background: var(--ring);
+}
+.portrait .img {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: var(--slate);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 150px; font-weight: 600; letter-spacing: 4px;
+  background-size: cover; background-position: center;
+}
+body.has-photo .portrait .img,
+body.has-photo .author .av { background-image: url(photo.jpg); font-size: 0; }
+.hero h1 { font-size: 132px; font-weight: 700; letter-spacing: -3px; margin-bottom: 26px; }
+.hero .text { font-size: 34px; line-height: 1.6; max-width: 760px; margin-bottom: 54px; }
+.tags { display: flex; justify-content: center; }
+.tags span {
+  font-size: 26px; font-weight: 500; color: var(--ink);
+  padding: 0 34px; line-height: 1; border-right: 2px solid var(--sep);
+}
+.tags span:last-child { border-right: 0; }
+
+/* ---------- 02 ABOUT ---------- */
+.big { font-size: 112px; font-weight: 800; letter-spacing: -3px; }
+.about .big { margin: 90px 0 56px; }
+.about .hi { font-size: 44px; font-weight: 400; margin-bottom: 30px; }
+.about .hi span { font-weight: 600; }
+.about .lede { font-size: 32px; line-height: 1.65; max-width: 860px; }
+
+.about-row { margin-top: auto; margin-bottom: 86px; display: flex; align-items: center; justify-content: space-between; }
+.progress { width: 500px; }
+.progress .row { display: flex; justify-content: space-between; margin-bottom: 16px; font-size: 26px; }
+.progress .row b { color: var(--ink); font-weight: 600; }
+.progress .track { height: 30px; border: 2px solid var(--body); padding: 4px; }
+.progress .fill { height: 100%; width: 34%; background: var(--slate); }
+
+.exp {
+  position: relative; margin-right: 16px; flex-shrink: 0;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: var(--slate); color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.exp::before {
+  content: ""; position: absolute; inset: -16px; border-radius: 50%;
+  border: 2px solid var(--rule);
+}
+.exp h3 { color: #fff; font-size: 92px; font-weight: 700; line-height: 1; margin-bottom: 10px; }
+.exp span { font-size: 28px; font-weight: 500; line-height: 1.3; }
+
+/* ---------- 03 WHAT TO EXPECT ---------- */
+.expect .big { margin: 64px 0 18px; }
+.expect .desc { font-size: 30px; line-height: 1.6; margin-bottom: 48px; }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.card { background: #fff; border-radius: 8px; padding: 40px 40px 38px; }
+.card.dark { background: #000; }
+.card svg { width: 54px; height: 54px; margin-bottom: 22px; fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.card h3 { font-size: 32px; font-weight: 600; margin-bottom: 14px; }
+.card p { font-size: 23px; line-height: 1.55; }
+.card.dark svg { stroke: #fff; }
+.card.dark h3 { color: #fff; }
+.card.dark p { color: #A9A9A9; }
+
+/* ---------- 04 CONTACT ---------- */
+.contact .big { margin: 72px 0 18px; }
+.contact .desc { font-size: 30px; line-height: 1.6; margin-bottom: 50px; }
+.box { background: var(--tint); padding: 56px 60px 30px; }
+.box .open { font-size: 32px; line-height: 1.55; margin-bottom: 4px; }
+.box .open-b { font-size: 40px; font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 52px; }
+.box ul { list-style: none; border-top: 1px solid var(--rule); }
+.box li:last-child { border-bottom: 0; }
+.box li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 28px 0; border-bottom: 1px solid var(--rule);
+  font-size: 28px;
+}
+.box li b { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="stack">
+
+  <!-- 01 HERO -->
+  <section class="slide hero" id="s1">
+    <div class="bar">
+      <div class="logo"><b>C</b>harlie</div>
+      <div class="count"><span>01</span> / 04</div>
+    </div>
+    <div class="main">
+      <div class="portrait"><div class="img">CS</div></div>
+      <h1>Charlie S.</h1>
+      <p class="text">Founder of Flyer. Building it from scratch and sharing the journey here.</p>
+      <div class="tags">
+        <span>Founder</span><span>Builder</span><span>Flyer (WIP)</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="author">
+        <div class="av">CS</div>
+        <div><h3>Hello, Instagram</h3><p>Post one of many</p></div>
+      </div>
+      <div class="more">Swipe<i></i></div>
+    </div>
+  </section>
+
+  <!-- 02 ABOUT -->
+  <section class="slide about white" id="s2">
+    <div class="bar">
+      <div class="logo"><b>C</b>harlie</div>
+      <div class="count"><span>02</span> / 04</div>
+    </div>
+    <div class="main">
+      <h2 class="big">About Me</h2>
+      <h3 class="hi">Hi, I’m <span>Charlie S.</span></h3>
+      <p class="lede">I’m the founder of Flyer, a product I’m building from the ground up. It’s early, it’s unfinished, and that’s exactly why I’m documenting it.</p>
+      <div class="about-row">
+        <div class="progress">
+          <div class="row"><b>Flyer</b><span>Work in progress</span></div>
+          <div class="track"><div class="fill"></div></div>
+        </div>
+        <div class="exp"><h3>01</h3><span>First<br>post</span></div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="author">
+        <div class="av">CS</div>
+        <div><h3>Charlie S.</h3><p>Founder, Flyer</p></div>
+      </div>
+      <div class="more">Swipe<i></i></div>
+    </div>
+  </section>
+
+  <!-- 03 WHAT TO EXPECT -->
+  <section class="slide expect" id="s3">
+    <div class="bar">
+      <div class="logo"><b>C</b>harlie</div>
+      <div class="count"><span>03</span> / 04</div>
+    </div>
+    <div class="main">
+      <h2 class="big">What To Expect</h2>
+      <p class="desc">I’m building in public. Here’s what I’ll be posting.</p>
+      <div class="cards">
+        <div class="card dark">
+          <svg viewBox="0 0 48 48"><path d="M24 4c7 5 10 13 10 21l-5 7H19l-5-7c0-8 3-16 10-21z"/><circle cx="24" cy="19" r="4"/><path d="M14 25l-6 5v8l8-4M34 25l6 5v8l-8-4M20 38l4 6 4-6"/></svg>
+          <h3>Building Flyer</h3>
+          <p>Progress updates as the product takes shape.</p>
+        </div>
+        <div class="card">
+          <svg viewBox="0 0 48 48"><path d="M3 24s8-13 21-13 21 13 21 13-8 13-21 13S3 24 3 24z"/><circle cx="24" cy="24" r="6"/></svg>
+          <h3>Behind the Scenes</h3>
+          <p>The decisions, tools and trade-offs behind each step.</p>
+        </div>
+        <div class="card">
+          <svg viewBox="0 0 48 48"><path d="M17 33c0-4-5-7-5-14a12 12 0 0124 0c0 7-5 10-5 14z"/><path d="M18 38h12M20 43h8"/></svg>
+          <h3>Lessons Learned</h3>
+          <p>What worked, what didn’t, and what I’d change.</p>
+        </div>
+        <div class="card">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><path d="M31 17l-4 10-10 4 4-10z"/></svg>
+          <h3>Founder Life</h3>
+          <p>The honest side of starting something new.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="author">
+        <div class="av">CS</div>
+        <div><h3>Charlie S.</h3><p>Founder, Flyer</p></div>
+      </div>
+      <div class="more">Swipe<i></i></div>
+    </div>
+  </section>
+
+  <!-- 04 CONTACT -->
+  <section class="slide contact white" id="s4">
+    <div class="bar">
+      <div class="logo"><b>C</b>harlie</div>
+      <div class="count"><span>04</span> / 04</div>
+    </div>
+    <div class="main">
+      <h2 class="big">Let’s Connect</h2>
+      <p class="desc">Building something too? I’d like to hear about it.</p>
+      <div class="box">
+        <p class="open">I’m always open to talking about</p>
+        <p class="open-b">new ideas, collaborations or partnerships.</p>
+        <ul>
+          <li><b>Follow</b><span>for the next Flyer update</span></li>
+          <li><b>Comment</b><span>with what you’re working on</span></li>
+          <li><b>DM</b><span>my inbox is open</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="author">
+        <div class="av">CS</div>
+        <div><h3>Charlie S.</h3><p>Founder, Flyer</p></div>
+      </div>
+      <div class="more" style="color:var(--ink)">Follow along</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
