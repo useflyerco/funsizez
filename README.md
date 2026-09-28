@@ -37,7 +37,13 @@ Cover styles: `cover--photo`, `cover--process` (dark) and `cover--pricing` (grid
 
 ## Contact form
 
-The form posts to [FormSubmit](https://formsubmit.co) and forwards messages to charliecolestasiuk@gmail.com, so it works on any static host. The **first** submission sends an activation email to that inbox. Click the link in it once, and every message after that is delivered.
+The form uses **Netlify Forms**. There's no backend to run, and submissions are stored in the Netlify dashboard. One-time setup after the first deploy:
+
+1. In Netlify, go to **Forms → Enable form detection**, then redeploy (drag the folder in again).
+2. Go to **Forms → Form notifications → Add notification → Email notification** and enter charliecolestasiuk@gmail.com.
+3. Send a test message from the live site. It should appear under **Forms → contact** and in your inbox.
+
+The free tier covers 100 submissions a month. Spam is caught by Netlify's filter and a hidden honeypot field.
 
 ## Deploy
 

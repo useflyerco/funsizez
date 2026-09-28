@@ -390,8 +390,8 @@ function edina_tm_data_images(){
 // -----------------------------------------------------
 // ----------------    CONTACT FORM    -----------------
 // -----------------------------------------------------
-// Sends through FormSubmit (https://formsubmit.co) so the site works on any
-// static host. The first submission triggers a one-time activation email.
+// Submissions go to Netlify Forms (form name "contact" in index.html).
+// Enable form detection and an email notification in the Netlify dashboard.
 
 function edina_tm_contact_form(){
 	
@@ -410,7 +410,7 @@ function edina_tm_contact_form(){
 		var name 		= jQuery.trim(form.find('#name').val());
 		var email 		= jQuery.trim(form.find('#email').val());
 		var message 	= jQuery.trim(form.find('#message').val());
-		var honey		= form.find('input[name="_honey"]').val();
+		var honey		= form.find('input[name="bot-field"]').val();
 		var validEmail	= /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 		
 		result.removeClass('error').stop(true,true).hide().empty();
@@ -424,21 +424,12 @@ function edina_tm_contact_form(){
 		
 		button.prop('disabled', true).text('Sending…');
 		
-		fetch(form.attr('action'), {
+		fetch('/', {
 			method: 'POST',
-			headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-			body: JSON.stringify({
-				name: name,
-				email: email,
-				message: message,
-				_subject: 'New website enquiry from ' + name,
-				_template: 'table',
-				_captcha: 'false'
-			})
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: new URLSearchParams(new FormData(form[0])).toString()
 		}).then(function(res){
 			if(!res.ok){ throw new Error('Request failed'); }
-			return res.json();
-		}).then(function(){
 			result.text(result.data('success')).slideDown(400);
 			form[0].reset();
 		}).catch(function(){

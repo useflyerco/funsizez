@@ -424,10 +424,11 @@
 							<p>Have a website in mind?<br /><span>Let's talk about it.</span></p>
 						</div>
 						<div class="fields wow fadeInLeft" data-wow-duration="1s">
-							<form action="https://formsubmit.co/ajax/charliecolestasiuk@gmail.com" method="post" class="contact_form" id="contact_form" data-email="charliecolestasiuk@gmail.com" autocomplete="on" novalidate>
+							<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact_form" id="contact_form" data-email="charliecolestasiuk@gmail.com" autocomplete="on" novalidate>
+								<input type="hidden" name="form-name" value="contact" />
 								<div class="returnmessage" role="status" data-success="Thanks! Your message is on its way. I'll get back to you soon."></div>
 								<div class="empty_notice" role="alert"><span>Please fill in all required fields.</span></div>
-								<input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+								<p class="honey"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 								<div class="first_row">
 									<label for="name" class="visually_hidden">Name</label>
 									<input id="name" name="name" type="text" placeholder="Name*" autocomplete="name" required />
