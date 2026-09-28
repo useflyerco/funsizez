@@ -41,8 +41,8 @@ The form posts to [FormSubmit](https://formsubmit.co) and forwards messages to c
 
 ## Deploy
 
-It's a static folder, so any of these will work:
-- **Netlify / Cloudflare Pages:** connect the repo. There's no build command, and the publish directory is `/`.
+- **Netlify Drop (no account setup needed):** copy the site files into a folder, leaving out `README.md` and the template zip, then drag that folder onto https://app.netlify.com/drop. `netlify.toml` sets the cache and security headers, and `404.html` is picked up automatically.
+- **Netlify from Git:** connect this repo. There's no build command, and the publish directory is `.` (already set in `netlify.toml`).
 - **GitHub Pages:** go to Settings → Pages and deploy from the branch root.
 
 ## Still to add
