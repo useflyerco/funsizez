@@ -1,37 +1,37 @@
 # First post: caption and posting notes
 
-Upload `slide-1.png` → `slide-4.png` in order as one carousel post.
+Upload `slide-1.png` → `slide-5.png` in order as one carousel post.
 
 ## Caption
 
 ```
 Hi, I'm Charlie 👋
 
-I'm the founder of Flyer. I'm building it from scratch, and right now it's very much a work in progress.
+I'm building Flyer. Put up a flyer. Get hired.
 
-I started this account to build in public. Here's what you'll see:
+Flyer is a local marketplace for small jobs around Burlington, Halton and Hamilton. Anyone 12+ can post a flyer for one thing they're good at, set their price, and get booked by neighbours.
 
-→ Progress updates on Flyer as it takes shape
-→ The decisions and trade-offs behind each step
-→ Lessons learned, mistakes included
-→ The honest side of founder life
+Lawn care, babysitting, windows, snow, pets, tutoring, car washes, leaf raking. Or anything else: guitar lessons, video editing, tennis coaching.
 
-If you're building something too, tell me about it in the comments. I read every one.
+One account does both. Switch to earning when you want to offer something, and switch to hiring when you need a hand. Your profile, messages and reviews come with you.
 
-This is post one. Follow along for the rest.
+It's early, and I'm building it in public. This account is where I'll share the progress, the decisions and what I learn along the way.
 
-#buildinpublic #founder #startup #startupjourney #entrepreneur #founderlife #makers #wip
+If you put up a flyer tomorrow, what would it be for? Tell me in the comments 👇
+
+#buildinpublic #founder #startup #Burlington #BurlingtonON #HamOnt #Halton #sidehustle
 ```
 
 ## Alt text (Advanced settings → Accessibility → Write alt text)
 
-1. Cover: Charlie S., founder of Flyer, building it from scratch and sharing the journey.
-2. About Me: Charlie S. is building Flyer from the ground up. A progress bar marks Flyer as a work in progress. This is post 01.
-3. What to expect: Building Flyer, Behind the Scenes, Lessons Learned, and Founder Life.
-4. Let's connect: open to new ideas, collaborations or partnerships. Follow, comment, or DM.
+1. Headshot of Charlie S. with the text: Founder of Flyer, the local marketplace for small jobs in Burlington, Halton and Hamilton.
+2. About Me: Charlie S. is building Flyer, a hyperlocal marketplace where people post one thing they're good at and neighbours book them. This is post 01.
+3. How it works: Put up a flyer. Get hired. An example flyer for leaf raking at $20 per yard with tear-off tabs. Post a flyer, get booked, build a reputation. One account switches between earning and hiring.
+4. Offer anything: lawn care, babysitting, windows, snow, pets, tutoring, car wash, leaf raking, or anything else like guitar, video editing or tennis coaching.
+5. Let's connect: open to new ideas, collaborations or partnerships. Follow to watch Flyer get built, comment with what your flyer would be for, or DM.
 
 ## Before you post
 
-- **Add a photo if you can.** Posts with a face usually do better than initials. Save a square headshot as `photo.jpg` in this folder, add `class="has-photo"` to `<body>` in `post.html`, then run `node render.js`.
 - **Pin it.** Once it's live: ⋯ → Pin to your profile. New visitors will see it first.
 - **Grid check.** The profile grid crops posts to 3:4, which trims about 34px off each side. All text stays within the safe area.
+- **Editing.** Change the copy in `post.html`, then run `node render.js` to regenerate the slides. The headshot is `photo.webp`.
